@@ -1,5 +1,7 @@
 package jbse.bc;
 
+import java.io.Serializable;
+
 import jbse.bc.ClassFileArray.Visibility;
 import jbse.bc.exc.BadClassFileException;
 import jbse.bc.exc.ArrayMemberVisibilityException;
@@ -11,9 +13,13 @@ import jbse.common.Type;
  * @author Pietro Braione
  *
  */
-public abstract class ClassFileFactory {
+public abstract class ClassFileFactory implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5884558156903071616L;
 	/** Backlink to owner {@link ClassFileStore}. */
-	private ClassFileStore cfi;
+	private transient ClassFileStore cfi;
 	
 	public ClassFileFactory(ClassFileStore cfi) {
 		this.cfi = cfi;

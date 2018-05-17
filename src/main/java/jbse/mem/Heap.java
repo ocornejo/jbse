@@ -1,5 +1,6 @@
 package jbse.mem;
 
+import java.io.Serializable;
 import java.util.Collections;
 import java.util.Map;
 import java.util.SortedMap;
@@ -10,8 +11,12 @@ import jbse.common.exc.UnexpectedInternalException;
 /**
  * Class that offers the same services of the heap in the JVM's memory.
  */
-final class Heap implements Cloneable {
-    private SortedMap<Long, Objekt> objects; //TODO nonfinal to allow cloning
+final class Heap implements Cloneable, Serializable {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 4360136589275032617L;
+	private SortedMap<Long, Objekt> objects; //TODO nonfinal to allow cloning
     private long nextIndex;
     
     /**

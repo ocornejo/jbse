@@ -1,13 +1,19 @@
 package jbse.val;
 
+import java.io.Serializable;
+
 /**
  * An access to a local variable.
  * 
  * @author Pietro Braione
  *
  */
-public final class AccessLocalVariable extends AccessRoot {
-    private final String variableName;
+public final class AccessLocalVariable extends AccessRoot implements Serializable {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -6655687051391959034L;
+	private final String variableName;
     private final String toString;
     private final int hashCode;
 

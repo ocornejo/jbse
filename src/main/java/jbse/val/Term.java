@@ -1,5 +1,7 @@
 package jbse.val;
 
+import java.io.Serializable;
+
 import jbse.val.exc.InvalidTypeException;
 import jbse.val.exc.ValueDoesNotSupportNativeException;
 
@@ -24,8 +26,13 @@ import jbse.val.exc.ValueDoesNotSupportNativeException;
  * 
  * @author Pietro Braione
  */
-public final class Term extends Primitive {
-    /** The conventional value of the {@link Term}, a {@link String}. */
+public final class Term extends Primitive implements Serializable {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -4657267535770800176L;
+
+	/** The conventional value of the {@link Term}, a {@link String}. */
 	private final String value;
 	
 	/** Cached hash code. */

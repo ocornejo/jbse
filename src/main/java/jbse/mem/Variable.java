@@ -1,5 +1,7 @@
 package jbse.mem;
 
+import java.io.Serializable;
+
 import jbse.val.Calculator;
 import jbse.val.Value;
 
@@ -7,8 +9,13 @@ import jbse.val.Value;
  * Class representing a variable into the memory. It gathers the name, 
  * the declaration type and the runtime value of the variable. 
  */
-public class Variable implements Cloneable {
-    /** Type of the variable. */
+public class Variable implements Cloneable, Serializable {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 8793328459672591630L;
+
+	/** Type of the variable. */
     private final String type;
 
     /** Name of the variable. */

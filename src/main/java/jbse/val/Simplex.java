@@ -1,5 +1,7 @@
 package jbse.val;
 
+import java.io.Serializable;
+
 import jbse.common.Type;
 import jbse.val.exc.InvalidOperandException;
 import jbse.val.exc.InvalidTypeException;
@@ -7,7 +9,12 @@ import jbse.val.exc.InvalidTypeException;
 /**
  * Class for concrete primitive values.
  */
-public final class Simplex extends Primitive implements Cloneable {	
+public final class Simplex extends Primitive implements Cloneable, Serializable {	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5024722695733982777L;
+
 	/** The primitive value this object represents. */
     private final Object value;
     

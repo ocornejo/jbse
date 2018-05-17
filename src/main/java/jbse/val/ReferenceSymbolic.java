@@ -1,5 +1,7 @@
 package jbse.val;
 
+import java.io.Serializable;
+
 import jbse.common.Type;
 
 /**
@@ -7,7 +9,12 @@ import jbse.common.Type;
  * 
  * @author Pietro Braione
  */
-public final class ReferenceSymbolic extends Reference implements Symbolic {
+public final class ReferenceSymbolic extends Reference implements Symbolic, Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2171234288844620965L;
+
 	/** An identifier for the value, in order to track lazy initialization. */
 	private final int id;
 	

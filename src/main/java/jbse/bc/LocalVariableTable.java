@@ -1,5 +1,6 @@
 package jbse.bc;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -12,8 +13,17 @@ import jbse.common.Type;
 /**
  * Class of objects representing a method local variable table.
  */
-public class LocalVariableTable implements Iterable<LocalVariableTable.Row> {
-	public static class Row {
+public class LocalVariableTable implements Iterable<LocalVariableTable.Row>, Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7025549491730953978L;
+
+	public static class Row implements Serializable {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = -8903034670290567057L;
 		public int slot;
 		public String descriptor;
 		public String name;
@@ -108,7 +118,11 @@ public class LocalVariableTable implements Iterable<LocalVariableTable.Row> {
 		return new MyIterator();
 	}
 	
-	private class MyIterator implements Iterator<Row> {
+	private class MyIterator implements Iterator<Row>, Serializable {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 8562081556088966419L;
 		Iterator<Map.Entry<Integer, Set<Row>>> itOuter;
 		Iterator<Row> itSub;
 		

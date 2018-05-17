@@ -1,5 +1,6 @@
 package jbse.mem;
 
+import java.io.Serializable;
 import java.util.Map;
 
 import jbse.bc.Signature;
@@ -9,8 +10,13 @@ import jbse.val.MemoryPath;
 /**
  * Class that represent an instance of an object in the heap.
  */
-public class Instance extends Objekt {
+public class Instance extends Objekt implements Serializable {
     /**
+	 * 
+	 */
+	private static final long serialVersionUID = -4664752684648605648L;
+
+	/**
      * Constructor.
      * 
      * @param calc a {@link Calculator}.

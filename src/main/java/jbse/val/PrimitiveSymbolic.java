@@ -1,5 +1,7 @@
 package jbse.val;
 
+import java.io.Serializable;
+
 import jbse.val.exc.InvalidTypeException;
 import jbse.val.exc.ValueDoesNotSupportNativeException;
 
@@ -7,7 +9,12 @@ import jbse.val.exc.ValueDoesNotSupportNativeException;
 /**
  * Class that represent a symbolic value. 
  */
-public final class PrimitiveSymbolic extends Primitive implements Symbolic {
+public final class PrimitiveSymbolic extends Primitive implements Symbolic, Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7009808645572353542L;
+
 	/** The identifier of this symbol. */
     private final int id;
     

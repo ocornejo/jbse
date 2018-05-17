@@ -1,5 +1,6 @@
 package jbse.mem;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
@@ -17,7 +18,12 @@ import jbse.val.Value;
  * A Java object which may reside in the heap or in the static store, 
  * i.e., either a class, or an instance of a class, or an array.
  */
-public abstract class Objekt implements Cloneable {
+public abstract class Objekt implements Cloneable, Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5239866670377441272L;
+
 	/** 
 	 * The creation epoch of an {@link Objekt}.
 	 * 

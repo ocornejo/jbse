@@ -1,5 +1,6 @@
 package jbse.mem;
 
+import java.io.Serializable;
 import java.util.ArrayDeque;
 import java.util.Collection;
 import java.util.Collections;
@@ -11,8 +12,12 @@ import jbse.val.Value;
  * Class that represent the JVM's operand stack.
  */
 //TODO manage stack maps and possibly raise unexpected internal error
-final class OperandStack implements Cloneable {
-    /** Not final because of clone(). */
+final class OperandStack implements Cloneable, Serializable {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 2659531767602770024L;
+	/** Not final because of clone(). */
     private ArrayDeque<Value> valueStack;
     
     /**

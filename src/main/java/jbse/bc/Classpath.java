@@ -1,5 +1,6 @@
 package jbse.bc;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -8,7 +9,11 @@ import java.util.Collections;
  * 
  * @author Pietro Braione
  */
-public class Classpath implements Cloneable {
+public class Classpath implements Cloneable, Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7364070107931472580L;
 	private ArrayList<String> classPath; //nonfinal because of clone
 	
 	/**

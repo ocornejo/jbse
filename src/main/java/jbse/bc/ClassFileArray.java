@@ -4,6 +4,7 @@ import static jbse.bc.Signatures.JAVA_CLONEABLE;
 import static jbse.bc.Signatures.JAVA_OBJECT;
 import static jbse.bc.Signatures.JAVA_SERIALIZABLE;
 
+import java.io.Serializable;
 import java.lang.annotation.Annotation;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -14,7 +15,11 @@ import jbse.bc.exc.InvalidIndexException;
 import jbse.bc.exc.MethodCodeNotFoundException;
 import jbse.bc.exc.MethodNotFoundException;
 
-public class ClassFileArray extends ClassFile {
+public class ClassFileArray extends ClassFile implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1613875652840125646L;
 	//TODO by now clone is treated as a native method; implement it.
 	private static final int METHOD_CLONE_INDEX = 99;
 	private static final String METHOD_CLONE_NAME = "clone";

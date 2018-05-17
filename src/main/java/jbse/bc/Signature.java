@@ -1,9 +1,16 @@
 package jbse.bc;
 
+import java.io.Serializable;
+
 /**
  * Class that represents the signature of a method or a field.
  */
-public class Signature {
+public class Signature implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1753148862745165943L;
+
 	public final static String SIGNATURE_SEPARATOR = ":";
 	
     private final String containerClass;

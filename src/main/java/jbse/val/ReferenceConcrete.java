@@ -1,9 +1,15 @@
 package jbse.val;
 
+import java.io.Serializable;
+
 import jbse.common.Type;
 import jbse.mem.Util;
 
-public class ReferenceConcrete extends Reference {
+public class ReferenceConcrete extends Reference implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5548429892793548225L;
 	/** The position in the heap denoted by this {@link Reference}. */
 	private final long pos;
 	

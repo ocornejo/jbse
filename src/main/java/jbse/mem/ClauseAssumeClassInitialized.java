@@ -1,5 +1,6 @@
 package jbse.mem;
 
+import java.io.Serializable;
 
 /**
  * A path condition {@link Clause}, an assumption 
@@ -9,7 +10,11 @@ package jbse.mem;
  * @author Pietro Braione
  *
  */
-public class ClauseAssumeClassInitialized implements Clause {
+public class ClauseAssumeClassInitialized implements Clause, Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7241512804769502967L;
 	private final String className;
 	private final Klass k;
 		

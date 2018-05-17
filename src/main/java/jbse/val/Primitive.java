@@ -1,5 +1,7 @@
 package jbse.val;
 
+import java.io.Serializable;
+
 import jbse.common.Type;
 import jbse.common.exc.UnexpectedInternalException;
 import jbse.val.exc.InvalidOperandException;
@@ -9,7 +11,11 @@ import jbse.val.exc.InvalidTypeException;
 /**
  * Class that represent a primitive type value of any kind.
  */
-public abstract class Primitive extends Value implements Cloneable {
+public abstract class Primitive extends Value implements Cloneable, Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2823780002839670294L;
 	/** {@link Calculator} to perform operation on primitives. */
 	protected final Calculator calc;
 	

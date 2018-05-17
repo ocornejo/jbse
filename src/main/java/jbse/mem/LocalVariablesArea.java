@@ -1,5 +1,6 @@
 package jbse.mem;
 
+import java.io.Serializable;
 import java.util.Map;
 import java.util.Set;
 import java.util.SortedMap;
@@ -15,7 +16,12 @@ import jbse.val.Value;
 /**
  * Class representing a local variable memory area.
  */
-class LocalVariablesArea implements Cloneable {
+class LocalVariablesArea implements Cloneable, Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5927806597443905238L;
+
 	/** The local variable table for the method. */
 	private final LocalVariableTable lvt;
 	

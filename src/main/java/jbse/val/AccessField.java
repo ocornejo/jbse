@@ -1,13 +1,19 @@
 package jbse.val;
 
+import java.io.Serializable;
+
 /**
  * An access to an object's field.
  * 
  * @author Pietro Braione
  *
  */
-public final class AccessField extends AccessNonroot {
-    private final String fieldName;
+public final class AccessField extends AccessNonroot implements Serializable {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -1312353200950359380L;
+	private final String fieldName;
     private final int hashCode;
 
     public AccessField(String fieldName) {

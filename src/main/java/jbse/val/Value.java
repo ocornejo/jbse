@@ -1,5 +1,7 @@
 package jbse.val;
 
+import java.io.Serializable;
+
 import jbse.val.exc.ValueDoesNotSupportNativeException;
 
 /**
@@ -8,8 +10,12 @@ import jbse.val.exc.ValueDoesNotSupportNativeException;
  * @author unknown
  * @author Pietro Braione
  */
-public abstract class Value {
-    /** The type of this {@link Value}. */
+public abstract class Value implements Serializable {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -764461005247613530L;
+	/** The type of this {@link Value}. */
     private final char type;
 
     /**

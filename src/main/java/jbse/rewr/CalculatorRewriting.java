@@ -1,5 +1,6 @@
 package jbse.rewr;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -23,7 +24,11 @@ import jbse.val.exc.InvalidTypeException;
  * @author Pietro Braione
  *
  */
-public class CalculatorRewriting extends Calculator {
+public class CalculatorRewriting extends Calculator implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4261038162968937746L;
 	private final ArrayList<Rewriter> rewriters = new ArrayList<Rewriter>();
 	
 	/**

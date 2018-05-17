@@ -2,6 +2,8 @@ package jbse.rewr;
 
 import static jbse.val.FunctionApplication.*;
 
+import java.io.Serializable;
+
 import jbse.common.Type;
 import jbse.common.exc.UnexpectedInternalException;
 import jbse.rewr.exc.NoResultException;
@@ -23,7 +25,12 @@ import jbse.val.exc.InvalidTypeException;
  * @author Pietro Braione
  *
  */
-public class RewriterOperationOnSimplex extends Rewriter {
+public class RewriterOperationOnSimplex extends Rewriter implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4548009969741877620L;
+
 	public RewriterOperationOnSimplex() { }
 
 	@Override

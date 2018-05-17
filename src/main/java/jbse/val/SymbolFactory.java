@@ -1,11 +1,18 @@
 package jbse.val;
 
+import java.io.Serializable;
+
 import jbse.common.Type;
 import jbse.common.exc.UnexpectedInternalException;
 import jbse.val.exc.InvalidTypeException;
 
-public final class SymbolFactory implements Cloneable {
-    /** The {@link Calculator}. */
+public final class SymbolFactory implements Cloneable, Serializable {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 7472951295536831135L;
+
+	/** The {@link Calculator}. */
     private final Calculator calc;
 
 	/** The next available identifier for a new reference-typed symbolic value. */

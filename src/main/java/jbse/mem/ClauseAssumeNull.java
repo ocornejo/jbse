@@ -1,5 +1,7 @@
 package jbse.mem;
 
+import java.io.Serializable;
+
 import jbse.val.ReferenceSymbolic;
 
 /**
@@ -10,7 +12,12 @@ import jbse.val.ReferenceSymbolic;
  * @author Pietro Braione
  *
  */
-public class ClauseAssumeNull extends ClauseAssumeReferenceSymbolic {
+public class ClauseAssumeNull extends ClauseAssumeReferenceSymbolic implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2319073705255619107L;
+
 	/**
 	 * Constructor.
 	 * 

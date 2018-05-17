@@ -1,5 +1,6 @@
 package jbse.val;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.stream.Stream;
@@ -11,8 +12,12 @@ import java.util.stream.Stream;
  * @author Pietro Braione
  *
  */
-public final class MemoryPath implements Iterable<Access> {
-    private final Access[] accesses;
+public final class MemoryPath implements Iterable<Access>, Serializable {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -6743161301585514656L;
+	private final Access[] accesses;
     private final String toString;
     private final int hashCode;
 

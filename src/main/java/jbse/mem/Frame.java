@@ -1,5 +1,6 @@
 package jbse.mem;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.SortedMap;
 import java.util.TreeMap;
@@ -18,7 +19,12 @@ import jbse.val.Value;
 /**
  * Class representing the activation record of a method.
  */
-public class Frame implements Cloneable {
+public class Frame implements Cloneable, Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -882220257879991727L;
+
 	/** 
 	 * The value for the return program counter of 
 	 * the topmost (current) frame.

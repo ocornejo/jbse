@@ -1,13 +1,19 @@
 package jbse.val;
 
+import java.io.Serializable;
+
 /**
  * An access to the static method area for a class.
  * 
  * @author Pietro Braione
  *
  */
-public final class AccessStatic extends AccessRoot {
-    private final String className;
+public final class AccessStatic extends AccessRoot implements Serializable {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -4869487537883460891L;
+	private final String className;
     private final String toString;
     private final int hashCode;
 

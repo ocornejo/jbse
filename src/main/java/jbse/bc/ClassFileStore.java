@@ -1,5 +1,6 @@
 package jbse.bc;
 
+import java.io.Serializable;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
@@ -13,7 +14,11 @@ import jbse.common.Type;
  * Container of all classfiles. Currently it does not support 
  * multiple class loaders, nor dynamic class loading.
  */ 
-class ClassFileStore {
+class ClassFileStore implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6849785987907058259L;
 	private final ClassFileFactory f;
     private final HashMap<String, ClassFile> cache = new HashMap<>();
     private final ClassFileBoolean primitiveClassBoolean = new ClassFileBoolean(); 

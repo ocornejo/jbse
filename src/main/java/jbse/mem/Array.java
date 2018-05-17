@@ -3,6 +3,7 @@ package jbse.mem;
 import static jbse.common.Type.getArrayMemberType;
 import static jbse.common.Type.isPrimitive;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
@@ -35,7 +36,12 @@ import jbse.val.exc.InvalidTypeException;
  *  
  * @author Pietro Braione
  */
-public final class Array extends Objekt {
+public final class Array extends Objekt implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 377792938066451319L;
+
 	/** 
 	 * The {@link String} identifier of the {@link Term} used to
 	 * represent an {@link Array}'s index.
@@ -89,7 +95,11 @@ public final class Array extends Objekt {
 	 * 
 	 * @author Pietro Braione
 	 */
-	public abstract class AccessOutcome {
+	public abstract class AccessOutcome implements Serializable {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = -2086541822976125382L;
 		/** 
 		 * An {@link Expression} denoting the condition over 
 		 * the array index yielding this {@link AccessOutcome}. 
@@ -198,7 +208,11 @@ public final class Array extends Objekt {
 	 * 
 	 * @author Pietro Braione
 	 */
-	public class AccessOutcomeIn extends AccessOutcome implements Cloneable {
+	public class AccessOutcomeIn extends AccessOutcome implements Cloneable, Serializable {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 8719591516300921271L;
 		/**
 		 * A {@link Value} denoting the value returned  
          * by the array access. It can be either a 
@@ -276,8 +290,13 @@ public final class Array extends Objekt {
 	 * 
 	 * @author Pietro Braione
 	 */
-	public class AccessOutcomeOut extends AccessOutcome { 
+	public class AccessOutcomeOut extends AccessOutcome implements Serializable { 
 	    /**
+		 * 
+		 */
+		private static final long serialVersionUID = -5713086509312206587L;
+
+		/**
 	     * Constructor (outcome returned by a concrete get).
 	     */
 		private AccessOutcomeOut() {

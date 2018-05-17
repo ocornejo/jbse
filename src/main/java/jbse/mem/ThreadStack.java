@@ -1,5 +1,6 @@
 package jbse.mem;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -9,7 +10,12 @@ import jbse.mem.exc.ThreadStackEmptyException;
 /**
  * Class representing JVM thread stacks.
  */
-class ThreadStack implements Cloneable {
+class ThreadStack implements Cloneable, Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6405317495886102118L;
+
 	/** The stack position of the root frame. */
 	private static final int ROOT_FRAME = 0;
 

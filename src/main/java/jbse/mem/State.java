@@ -8,6 +8,7 @@ import static jbse.bc.Signatures.JAVA_STRING_OFFSET;
 import static jbse.bc.Signatures.JAVA_STRING_VALUE;
 import static jbse.common.Type.isPrimitiveBinaryClassName;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -62,7 +63,12 @@ import jbse.val.exc.InvalidTypeException;
 /**
  * Class that represents the state of execution.
  */
-public final class State implements Cloneable {
+public final class State implements Cloneable, Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8617680653032108771L;
+
 	/** The slot number of the "this" (method receiver) object. */
 	private static final int ROOT_THIS_SLOT = 0;
 

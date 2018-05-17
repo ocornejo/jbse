@@ -1,5 +1,6 @@
 package jbse.val;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -13,7 +14,12 @@ import jbse.val.exc.ValueDoesNotSupportNativeException;
 /**
  * Class that represent a unary or binary expression.
  */
-public final class Expression extends Primitive {
+public final class Expression extends Primitive implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6571760528616227846L;
+
 	/** The operator. */
     private final Operator operator;
     

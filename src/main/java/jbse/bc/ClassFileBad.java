@@ -1,5 +1,6 @@
 package jbse.bc;
 
+import java.io.Serializable;
 import java.util.Collections;
 import java.util.List;
 
@@ -10,8 +11,12 @@ import jbse.bc.exc.InvalidIndexException;
 import jbse.bc.exc.MethodCodeNotFoundException;
 import jbse.bc.exc.MethodNotFoundException;
 
-public final class ClassFileBad extends ClassFile {
-    private final String className;
+public final class ClassFileBad extends ClassFile implements Serializable {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 338757052956832761L;
+	private final String className;
     private final BadClassFileException e;
 
     ClassFileBad(String className, BadClassFileException e) {

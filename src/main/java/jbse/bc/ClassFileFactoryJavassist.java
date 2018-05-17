@@ -1,12 +1,18 @@
 package jbse.bc;
 
+import java.io.Serializable;
+
 import javassist.ClassPool;
 import javassist.NotFoundException;
 
 import jbse.bc.exc.BadClassFileException;
 
-public class ClassFileFactoryJavassist extends ClassFileFactory {
-	private ClassPool cpool;
+public class ClassFileFactoryJavassist extends ClassFileFactory implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -9057457425171129510L;
+	private transient ClassPool cpool;
 
 	public ClassFileFactoryJavassist(ClassFileStore cfi, Classpath cp) { 
 		super(cfi);

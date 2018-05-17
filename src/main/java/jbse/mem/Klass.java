@@ -1,5 +1,7 @@
 package jbse.mem;
 
+import java.io.Serializable;
+
 import jbse.bc.Signature;
 import jbse.val.Calculator;
 import jbse.val.MemoryPath;
@@ -8,8 +10,13 @@ import jbse.val.MemoryPath;
  * Class that represents a Java class in the static
  * method area, i.e., its static fields.
  */
-public final class Klass extends Objekt {
+public final class Klass extends Objekt implements Serializable {
     /**
+	 * 
+	 */
+	private static final long serialVersionUID = -6449212414434830937L;
+
+	/**
      * Constructor.
      * 
      * @param calc a {@link Calculator}.

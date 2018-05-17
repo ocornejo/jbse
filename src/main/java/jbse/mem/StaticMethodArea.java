@@ -1,5 +1,6 @@
 package jbse.mem;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -11,7 +12,11 @@ import java.util.Set;
  * @author Pietro Braione
  *
  */
-public final class StaticMethodArea implements Cloneable {
+public final class StaticMethodArea implements Cloneable, Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5614961861175850313L;
 	private HashMap<String, Klass> objTable;
 	
 	public StaticMethodArea() {

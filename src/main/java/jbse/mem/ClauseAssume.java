@@ -1,5 +1,7 @@
 package jbse.mem;
 
+import java.io.Serializable;
+
 import jbse.val.Expression;
 import jbse.val.Primitive;
 
@@ -10,7 +12,11 @@ import jbse.val.Primitive;
  * @author Pietro Braione
  *
  */
-public class ClauseAssume implements Clause {
+public class ClauseAssume implements Clause, Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3168561777057031217L;
 	private final Primitive p;
 	
 	/**

@@ -1,5 +1,6 @@
 package jbse.mem;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -15,7 +16,12 @@ import jbse.val.ReferenceSymbolic;
  * different branch points traversed during execution as a 
  * suitable {@link Collection}{@code <}{@link Clause}{@code >}. 
  */
-final class PathCondition implements Cloneable {
+final class PathCondition implements Cloneable, Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6437606126763600136L;
+
 	/** {@link ArrayList} of all the {@link Clause}s forming the path condition. */
 	private ArrayList<Clause> clauses;
 	

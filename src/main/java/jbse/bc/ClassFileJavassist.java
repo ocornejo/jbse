@@ -1,5 +1,6 @@
 package jbse.bc;
 
+import java.io.Serializable;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
@@ -27,9 +28,13 @@ import jbse.bc.exc.InvalidIndexException;
 import jbse.bc.exc.MethodCodeNotFoundException;
 import jbse.bc.exc.MethodNotFoundException;
 
-public class ClassFileJavassist extends ClassFile {
-	private CtClass cls;
-	private ConstPool cp;
+public class ClassFileJavassist extends ClassFile implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6170779078717263891L;
+	private transient CtClass cls;
+	private transient ConstPool cp;
 	
 	ClassFileJavassist(String className, ClassPool cpool) throws BadClassFileException {
 		try {

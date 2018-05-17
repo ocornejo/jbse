@@ -4,6 +4,7 @@ import static jbse.bc.Signatures.JAVA_CLONEABLE;
 import static jbse.bc.Signatures.JAVA_OBJECT;
 import static jbse.bc.Signatures.JAVA_SERIALIZABLE;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -36,7 +37,11 @@ import jbse.common.exc.UnexpectedInternalException;
  * @author Pietro Braione
  *
  */
-public class ClassHierarchy {
+public class ClassHierarchy implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5320530486408652648L;
 	private final Classpath cp;
 	private final ClassFileStore cfs;
 	private final Map<String, Set<String>> expansionBackdoor;

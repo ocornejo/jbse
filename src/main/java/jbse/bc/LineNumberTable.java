@@ -1,10 +1,20 @@
 package jbse.bc;
 
+import java.io.Serializable;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-public class LineNumberTable implements Iterable<LineNumberTable.Row> {
-	public static class Row {
+public class LineNumberTable implements Iterable<LineNumberTable.Row>, Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5772943534543864363L;
+
+	public static class Row implements Serializable {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1799478059651498653L;
 		public int start;
 		public int lineNumber;
 		

@@ -1,5 +1,7 @@
 package jbse.val;
 
+import java.io.Serializable;
+
 import jbse.common.Type;
 import jbse.common.exc.UnexpectedInternalException;
 
@@ -9,8 +11,12 @@ import jbse.common.exc.UnexpectedInternalException;
  * @author Pietro Braione
  *
  */
-public final class AccessArrayMember extends AccessNonroot {
-    private final Primitive index;
+public final class AccessArrayMember extends AccessNonroot implements Serializable {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -6048305873881767323L;
+	private final Primitive index;
     private final String toString;
     private final int hashCode;
 

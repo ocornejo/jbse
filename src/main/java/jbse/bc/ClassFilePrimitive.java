@@ -1,5 +1,6 @@
 package jbse.bc;
 
+import java.io.Serializable;
 import java.util.Collections;
 import java.util.List;
 
@@ -7,39 +8,84 @@ import jbse.bc.exc.FieldNotFoundException;
 import jbse.bc.exc.InvalidIndexException;
 import jbse.bc.exc.MethodNotFoundException;
 
-class ClassFileBoolean extends ClassFilePrimitive {	
+class ClassFileBoolean extends ClassFilePrimitive implements Serializable {	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1526308242251281143L;
+
 	ClassFileBoolean() { super("boolean"); }	
 }
 
-class ClassFileByte extends ClassFilePrimitive {
+class ClassFileByte extends ClassFilePrimitive implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1027188188237523624L;
+
 	ClassFileByte() { super("byte"); }	
 }
 
-class ClassFileCharacter extends ClassFilePrimitive {	
+class ClassFileCharacter extends ClassFilePrimitive implements Serializable {	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1460648497829228632L;
+
 	ClassFileCharacter() { super("char"); }	
 }
 
-class ClassFileShort extends ClassFilePrimitive {
+class ClassFileShort extends ClassFilePrimitive implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4958021061700183637L;
+
 	ClassFileShort() { super("short"); }	
 }
 
-class ClassFileInteger extends ClassFilePrimitive {
+class ClassFileInteger extends ClassFilePrimitive implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3427230361140745922L;
+
 	ClassFileInteger() { super("int"); }	
 }
 
-class ClassFileLong extends ClassFilePrimitive {
+class ClassFileLong extends ClassFilePrimitive implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4572778947158381544L;
+
 	ClassFileLong() { super("long"); }	
 }
 
-class ClassFileFloat extends ClassFilePrimitive {
+class ClassFileFloat extends ClassFilePrimitive implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3021932492630556320L;
+
 	ClassFileFloat() { super("float"); }	
 }
 
-class ClassFileDouble extends ClassFilePrimitive {
+class ClassFileDouble extends ClassFilePrimitive implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5177691997532576585L;
+
 	ClassFileDouble() { super("double"); }	
 }
 
-class ClassFileVoid extends ClassFilePrimitive {
+class ClassFileVoid extends ClassFilePrimitive implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2613351403254470721L;
+
 	ClassFileVoid() { super("void"); }	
 }
 
@@ -50,7 +96,12 @@ class ClassFileVoid extends ClassFilePrimitive {
  * @author Pietro Braione
  *
  */
-abstract class ClassFilePrimitive extends ClassFile {
+abstract class ClassFilePrimitive extends ClassFile implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3262049330127817622L;
+
 	private static final String NO_CONSTANT_POOL = "Primitive classes have no constant pool.";
 	
 	private final String className;
