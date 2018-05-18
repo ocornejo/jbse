@@ -9,6 +9,10 @@ import jbse.mem.Util;
  * @author Pietro Braione
  */
 public final class Null extends ReferenceConcrete {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1186565540658464290L;
 	private static ReferenceConcrete instance = new Null();
     
     /**

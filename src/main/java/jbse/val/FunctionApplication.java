@@ -18,7 +18,12 @@ public final class FunctionApplication extends Primitive {
     //pure functions implemented in java.lang.StrictMath 
     //TODO move them elsewhere? should make an enum? (no special advantage in both)
     
-    /** Absolute value */
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -1834676393707053400L;
+
+	/** Absolute value */
     public static final String ABS = "abs";
     
     /** Trigonometric sine */
@@ -231,4 +236,9 @@ public final class FunctionApplication extends Primitive {
 		}
 		return true;
 	}
+	
+    @Override
+    public String originFragmented() {
+        throw new UnsupportedOperationException();
+    }
 }

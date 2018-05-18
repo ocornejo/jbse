@@ -6,46 +6,50 @@ import jbse.val.exc.InvalidTypeException;
 import jbse.val.exc.ValueDoesNotSupportNativeException;
 
 /**
- * Class representing the values resulting from a narrowing
- * conversion between numeric primitive types.
+ * Class representing the values resulting from a narrowing conversion between
+ * numeric primitive types.
  * 
  * @author Pietro Braione
  *
  */
 public final class NarrowingConversion extends Primitive {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 87226265330496644L;
 	private final Primitive arg;
 	private final String toString;
 	private final int hashCode;
 
-	private NarrowingConversion(char type, Calculator calc, Primitive arg) 
-	throws InvalidOperandException, InvalidTypeException {
+	private NarrowingConversion(char type, Calculator calc, Primitive arg)
+			throws InvalidOperandException, InvalidTypeException {
 		super(type, calc);
 
-		//checks on parameters
-        if (arg == null) {
-    		throw new InvalidOperandException("null operand in narrowing construction");
-        }
+		// checks on parameters
+		if (arg == null) {
+			throw new InvalidOperandException("null operand in narrowing construction");
+		}
 		if (!Type.narrows(type, arg.getType())) {
 			throw new InvalidTypeException("cannot narrow type " + arg.getType() + " to type " + type);
 		}
 		this.arg = arg;
-		
-        //calculates hashCode
+
+		// calculates hashCode
 		final int prime = 311;
 		int result = 1;
 		result = prime * result + arg.hashCode();
 		result = prime * result + type;
 		this.hashCode = result;
 
-		//calculates toString
-		this.toString = "NARROW-"+ this.getType() + "(" + arg.toString() + ")";
-}
-	
-	public static NarrowingConversion make(char type, Calculator calc, Primitive arg) 
-	throws InvalidOperandException, InvalidTypeException {
+		// calculates toString
+		this.toString = "NARROW-" + this.getType() + "(" + arg.toString() + ")";
+	}
+
+	public static NarrowingConversion make(char type, Calculator calc, Primitive arg)
+			throws InvalidOperandException, InvalidTypeException {
 		return new NarrowingConversion(type, calc, arg);
 	}
-	
+
 	public Primitive getArg() {
 		return this.arg;
 	}
@@ -105,6 +109,11 @@ public final class NarrowingConversion extends Primitive {
 			return false;
 		}
 		return true;
+	}
+
+	@Override
+	public String originFragmented() {
+		return this.arg.originFragmented();
 	}
 
 }

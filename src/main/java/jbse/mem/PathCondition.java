@@ -16,7 +16,7 @@ import jbse.val.ReferenceSymbolic;
  * different branch points traversed during execution as a 
  * suitable {@link Collection}{@code <}{@link Clause}{@code >}. 
  */
-final class PathCondition implements Cloneable, Serializable {
+final public class PathCondition implements Cloneable, Serializable {
 	/**
 	 * 
 	 */
@@ -40,7 +40,7 @@ final class PathCondition implements Cloneable, Serializable {
     /**
      * Constructor.
      */
-    PathCondition() {
+    public PathCondition() {
     	this.clauses = new ArrayList<>();
     	this.referenceResolutionMap = new HashMap<>();
     	this.objectCounters = new HashMap<>();
@@ -200,7 +200,7 @@ final class PathCondition implements Cloneable, Serializable {
      * representing all the {@link Clause}s cumulated in {@code this}. 
      * It is valid until {@code this} is modified.
      */
-    List<Clause> getClauses() {
+    public List<Clause> getClauses() {
     	return Collections.unmodifiableList(this.clauses);
     }
     
@@ -240,5 +240,42 @@ final class PathCondition implements Cloneable, Serializable {
         o.objectCounters = new HashMap<>(this.objectCounters);
         
         return o;
+    }
+    
+    public boolean isEmpty(){
+        if (clauses.isEmpty()){
+            return true;
+        }
+        return false;
+    }
+
+    public void addClause(Clause c) {
+        this.clauses.add(c);
+    }
+    
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result +
+                 ((this.clauses == null) ? 0 : this.clauses.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) 
+            return true;
+        if (obj == null) 
+            return false;
+        if (getClass() != obj.getClass()) 
+            return false;
+        PathCondition other = (PathCondition) obj;
+        if (this.clauses == null) {
+            if (other.clauses != null) 
+                return false;
+        } else if (!this.clauses.equals(other.clauses)) 
+            return false;
+        return true;
     }
 }

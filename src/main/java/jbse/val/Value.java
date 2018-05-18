@@ -72,4 +72,11 @@ public abstract class Value implements Serializable {
      */
     @Override
     public abstract String toString();
+    
+    /**
+     * Returns the String representation of the Value
+     * but in Fragmented Monitoring type
+     * @return
+     */
+    public abstract String originFragmented();
 }

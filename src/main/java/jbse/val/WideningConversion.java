@@ -6,39 +6,43 @@ import jbse.val.exc.InvalidTypeException;
 import jbse.val.exc.ValueDoesNotSupportNativeException;
 
 public final class WideningConversion extends Primitive {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2326882203836245412L;
 	private final Primitive arg;
 	private final String toString;
 	private final int hashCode;
 
-	private WideningConversion(char type, Calculator calc, Primitive arg) 
-	throws InvalidOperandException, InvalidTypeException {
+	private WideningConversion(char type, Calculator calc, Primitive arg)
+			throws InvalidOperandException, InvalidTypeException {
 		super(type, calc);
 
-		//checks on parameters
-        if (arg == null) {
-    		throw new InvalidOperandException("null operand in widening construction");
-        }
+		// checks on parameters
+		if (arg == null) {
+			throw new InvalidOperandException("null operand in widening construction");
+		}
 		if (!Type.widens(type, arg.getType())) {
 			throw new InvalidTypeException("cannot widen type " + arg.getType() + " to type " + type);
 		}
 		this.arg = arg;
 
-		//calculates hashCode
+		// calculates hashCode
 		final int prime = 281;
 		int result = 1;
 		result = prime * result + arg.hashCode();
 		result = prime * result + type;
 		this.hashCode = result;
-		
-		//calculates toString
-		this.toString = "WIDEN-"+ this.getType() + "(" + arg.toString() + ")";
+
+		// calculates toString
+		this.toString = "WIDEN-" + this.getType() + "(" + arg.toString() + ")";
 	}
-	
-	public static WideningConversion make(char type, Calculator calc, Primitive arg) 
-	throws InvalidOperandException, InvalidTypeException {
+
+	public static WideningConversion make(char type, Calculator calc, Primitive arg)
+			throws InvalidOperandException, InvalidTypeException {
 		return new WideningConversion(type, calc, arg);
 	}
-	
+
 	public Primitive getArg() {
 		return this.arg;
 	}
@@ -98,5 +102,10 @@ public final class WideningConversion extends Primitive {
 			return false;
 		}
 		return true;
+	}
+
+	@Override
+	public String originFragmented() {
+		return this.arg.originFragmented();
 	}
 }

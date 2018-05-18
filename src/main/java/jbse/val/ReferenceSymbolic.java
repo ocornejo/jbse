@@ -111,4 +111,9 @@ public final class ReferenceSymbolic extends Reference implements Symbolic, Seri
     public String toString() {
         return this.toString;
     }
+    
+    @Override
+    public String originFragmented() {
+        throw new UnsupportedOperationException();
+    }
 }

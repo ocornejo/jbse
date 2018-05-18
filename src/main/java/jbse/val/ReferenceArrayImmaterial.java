@@ -20,6 +20,11 @@ import jbse.val.exc.InvalidTypeException;
  * @author Pietro Braione
  */
 public final class ReferenceArrayImmaterial extends Reference {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7923279176602162990L;
+
 	/** The type of the array. */
 	private final String arrayType;
 	
@@ -159,5 +164,10 @@ public final class ReferenceArrayImmaterial extends Reference {
         }
         buf.append("]}");
         return buf.toString();
+    }
+    
+    @Override
+    public String originFragmented() {
+        throw new UnsupportedOperationException();
     }
 }

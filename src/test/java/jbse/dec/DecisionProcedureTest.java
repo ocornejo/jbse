@@ -51,7 +51,7 @@ public class DecisionProcedureTest {
 	public void setUp() throws DecisionException {
 	    this.dec = 
 	        new DecisionProcedureAlgorithms(
-	            new DecisionProcedureSMTLIB2_AUFNIRA(new DecisionProcedureAlwSat(), this.calc, "/opt/local/bin/z3 -smt2 -in -t:10"), 
+	            new DecisionProcedureSMTLIB2_AUFNIRA(new DecisionProcedureAlwSat(), this.calc, "/opt/z3-4.5.0-x64-osx-10.11.6/bin/z3 -smt2 -in -t:10"), 
 	            this.calc);
 	}
 

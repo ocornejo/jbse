@@ -11,7 +11,11 @@ import jbse.val.MemoryPath;
  * in the heap.
  */
 public final class Instance_JAVA_CLASS extends Instance {
-    /** The java class it represents. Immutable. */
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 6355460008455587063L;
+	/** The java class it represents. Immutable. */
     private final String representedClass;
 
     protected Instance_JAVA_CLASS(Calculator calc, MemoryPath origin, Epoch epoch, String representedClass, Signature... fieldSignatures) {

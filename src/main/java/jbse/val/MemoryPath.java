@@ -95,4 +95,35 @@ public final class MemoryPath implements Iterable<Access>, Serializable {
     public String toString() {
         return this.toString;
     }
+    
+    /**
+     * returns string in Fragmented Monitoring form
+     * @return
+     */
+    public String originFragmented(){
+        String fragmented;
+        StringBuilder result = new StringBuilder();
+
+        for (Access access: this.accesses){
+            String stringToAppend = "";
+            
+            if (access instanceof AccessStatic){
+            	stringToAppend = access.toString().replaceAll("/", "\\.").replace("]", "");
+        	} else if (access instanceof AccessArrayMember){
+                AccessArrayMember aam = (AccessArrayMember) access;
+                result.deleteCharAt(result.length() - 1);
+                stringToAppend = aam.originFragmented();
+            } else {
+                stringToAppend = access.toString();
+            }
+            
+            result.append(stringToAppend);
+            result.append(".");
+        }
+
+        fragmented = result.length() > 0 ? result.substring(0, result.length() - 1) : "";
+        fragmented = fragmented.replaceAll("\\{ROOT\\}:this.", "");
+
+        return fragmented;
+    }
 }

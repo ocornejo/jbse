@@ -370,9 +370,10 @@ public final class Expression extends Primitive implements Serializable {
 		} else if (!firstOp.equals(other.firstOp)) {
 			return false;
 		}
-		if (operator != other.operator) {
-			return false;
-		}
+//		FRAGMENTED: commented
+//		if (operator != other.operator) {
+//			return false;
+//		}
 		if (secondOp == null) {
 			if (other.secondOp != null) {
 				return false;
@@ -381,5 +382,48 @@ public final class Expression extends Primitive implements Serializable {
 			return false;
 		}
 		return true;
+	}
+	
+	
+	/**
+	 * calculates toString
+	 */
+	@Override
+	public String originFragmented() {
+		String tmpToString = "";
+		boolean parentheses = false;
+		if (firstOp != null) {
+			if (firstOp instanceof Expression) {
+				parentheses = true; // default
+				final Operator firstOpOperator = ((Expression) firstOp).operator;
+				if (firstOpOperator.precedence() >= operator.precedence()) {
+					parentheses = false;
+				}
+			}
+			tmpToString += (parentheses ? "(" : "") + firstOp.originFragmented() + (parentheses ? ")" : "");
+		}
+		tmpToString += " " + operator.toString() + " ";
+		parentheses = false;
+		if (secondOp instanceof Expression) {
+			parentheses = true; // default
+			Operator secondOpOperator = ((Expression) secondOp).operator;
+			if (secondOpOperator.precedence() > operator.precedence()) {
+				parentheses = false;
+			} else if (secondOpOperator.precedence() == operator.precedence()) {
+				if (secondOpOperator == operator) {
+					if (operator == Operator.ADD || operator == Operator.SUB || operator == Operator.MUL) {
+						parentheses = false;
+					}
+				} else if (operator == Operator.MUL && secondOpOperator == Operator.DIV) {
+					parentheses = false;
+				}
+			} else if (operator == Operator.ADD && secondOpOperator == Operator.SUB) {
+				parentheses = false;
+			} else if (operator == Operator.SUB && secondOpOperator == Operator.ADD) {
+				parentheses = false;
+			}
+		}
+		tmpToString += (parentheses ? "(" : "") + secondOp.originFragmented() + (parentheses ? ")" : "");
+		return tmpToString;
 	}
 }

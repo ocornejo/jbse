@@ -55,6 +55,80 @@ public final class AccessArrayMember extends AccessNonroot implements Serializab
             return null;
         }
     }
+    
+    private static class OriginStringifierFragmented implements PrimitiveVisitor {
+        String result = null;
+
+        @Override
+        public void visitAny(Any x) {
+            this.result = x.toString();
+        }
+
+        @Override
+        public void visitExpression(Expression e) throws Exception {
+            if (e.isUnary()) {
+                e.getOperand().accept(this);
+                final String argStr = this.result;
+                final Operator operator = e.getOperator();
+                this.result = (operator == Operator.NEG ? "-" : operator.toString()) + " (" + argStr + ")";
+            } else {
+                e.getFirstOperand().accept(this);
+                final String firstOperandStr = this.result;
+                e.getSecondOperand().accept(this);
+                final String secondOperandStr = this.result;
+                this.result = "(" + firstOperandStr +") " + e.getOperator().toString() + " (" + secondOperandStr + ")";
+            }
+        }
+
+        @Override
+        public void visitFunctionApplication(FunctionApplication x)
+        throws Exception {
+            final StringBuilder b = new StringBuilder();
+            b.append(x.getOperator());
+            b.append('(');
+            boolean firstDone = false;
+            for (Primitive arg : x.getArgs()) {
+                if (firstDone) {
+                    b.append(", ");
+                } else {
+                    firstDone = true;
+                }
+                arg.accept(this);
+                b.append(this.result);
+            }
+            b.append(')');
+            this.result = b.toString();
+        }
+
+        @Override
+        public void visitPrimitiveSymbolic(PrimitiveSymbolic s) {
+            this.result = s.getOrigin().originFragmented();
+        }
+
+        @Override
+        public void visitSimplex(Simplex x) {
+            this.result = x.toString();
+        }
+
+        @Override
+        public void visitTerm(Term x) {
+            this.result = x.toString();
+        }
+
+        @Override
+        public void visitNarrowingConversion(NarrowingConversion x)
+        throws Exception {
+            x.getArg().accept(this);
+            this.result = "(" + javaPrimitiveType(x.getType()) + ") (" + this.result + ")";
+            
+        }
+
+        @Override
+        public void visitWideningConversion(WideningConversion x)
+        throws Exception {
+            x.getArg().accept(this);
+        } 
+    }
 
     private static class OriginStringifier implements PrimitiveVisitor {
         String result = null;
@@ -165,5 +239,17 @@ public final class AccessArrayMember extends AccessNonroot implements Serializab
     @Override
     public String toString() {
         return this.toString;
+    }
+    
+    public String originFragmented(){
+        final OriginStringifierFragmented os = new OriginStringifierFragmented();
+        try {
+            index.accept(os);
+        } catch (Exception e) {
+            //this should never happen
+            throw new UnexpectedInternalException(e);
+        }
+        return "[" + os.result + "]";
+        
     }
 }

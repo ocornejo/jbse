@@ -11,7 +11,11 @@ import jbse.val.exc.ValueDoesNotSupportNativeException;
  * @author Pietro Braione
  */
 public final class DefaultValue extends Value {
-    private static DefaultValue instance = new DefaultValue();
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -6335064931567720848L;
+	private static DefaultValue instance = new DefaultValue();
 	
 	private DefaultValue() { 
 		super(Type.UNKNOWN); 
@@ -45,4 +49,10 @@ public final class DefaultValue extends Value {
 	public boolean isSymbolic() {
 		return true;
 	}
+
+    @Override
+    public String originFragmented() {
+        throw new UnsupportedOperationException();
+    }
+	
 }

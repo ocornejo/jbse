@@ -234,4 +234,12 @@ public final class Simplex extends Primitive implements Cloneable, Serializable 
 		}
 		return true;
 	}
+	
+	@Override
+	public String originFragmented() {
+		if (this.getType() == Type.LONG)
+			return this.toString + 'L';
+		else
+			return this.toString;
+	}
 }

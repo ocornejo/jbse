@@ -14,6 +14,11 @@ import jbse.val.exc.ValueDoesNotSupportNativeException;
  * @author Pietro Braione
  */
 public final class Any extends Primitive {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3357649180053357786L;
+
 	private Any(Calculator calc) throws InvalidTypeException {
 		super(Type.BOOLEAN, calc);
 	}
@@ -66,4 +71,9 @@ public final class Any extends Primitive {
 	public String toString() {
 		return "*";
 	}
+	
+    @Override
+    public String originFragmented() {
+        throw new UnsupportedOperationException();
+    }
 }

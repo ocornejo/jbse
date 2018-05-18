@@ -81,4 +81,9 @@ public class ReferenceConcrete extends Reference implements Serializable {
     public int hashCode() {
     	return (int) this.pos;
     }
+    
+    @Override
+    public String originFragmented() {
+        throw new UnsupportedOperationException();
+    }
 }

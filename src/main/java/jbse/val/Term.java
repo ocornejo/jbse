@@ -141,4 +141,9 @@ public final class Term extends Primitive implements Serializable {
 	public String toString() {
 		return this.value;
 	}
+	
+    @Override
+    public String originFragmented() {
+        throw new UnsupportedOperationException();
+    }
 }
