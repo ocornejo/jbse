@@ -247,11 +247,13 @@ public class Engine implements AutoCloseable {
 		        continuation = e.getContinuation();
 		    } catch (ClasspathException | CannotManageStateException | 
 		            ThreadStackEmptyException |  ContradictionException | 
-		            DecisionException | FailureException | 
-		            UnexpectedInternalException e) {
+		            DecisionException | FailureException e) {
 		        this.stopCurrentTrace();
 		        throw e;
-		    } 
+		    } catch(UnexpectedInternalException e) {
+		    	System.err.println(e.getMessage());
+		    	this.stopCurrentTrace();
+		    }
 		} while (continuation != null);
 		this.someReferenceNotExpanded = algo.someReferenceNotExpanded();
 		this.nonExpandedReferencesOrigins = algo.nonExpandedReferencesOrigins();
